@@ -22,7 +22,7 @@ export default class NavBar extends Component {
     e.preventDefault();
     const valueState = this.state.search;
 
-    const api = `https://api.mercadolibre.com/sites/MLM/search?q=${valueState}`;
+    const api = `https://api.mercadolibre.com/sites/MLM/search?q=${valueState}&limit=5`;
 
     axios.get(api).then(
       (res) => {
