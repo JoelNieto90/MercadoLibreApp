@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import "./App.css";
+import "./styles/App.scss";
 
 export default class App extends Component {
   render() {
