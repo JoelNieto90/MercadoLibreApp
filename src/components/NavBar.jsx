@@ -1,11 +1,32 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import Logo from "../Assets/logo.png";
-import "../styles/NavBar.scss"
+import "../styles/NavBar.scss";
 import location from "../Assets/location.svg";
 
 export default class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: "",
+    };
+  }
 
+  componentDidMount() {
+    axios
+      .get("https://api.mercadolibre.com/sites/MLM/search?category=MLM1648")
+      .then(
+        (res) => {
+          const data = res.data.results;
+          console.log(data);
+          this.props.getDataResults(data);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
   render() {
     return (
       <nav className="NavBar">

@@ -6,13 +6,31 @@ import Main from "./components/Main";
 import "./styles/App.scss";
 
 export default class App extends Component {
+  state = {
+    dataResults: [],
+  };
+
+  getDataResults = (data) => {
+    const dataResults = data;
+    this.setState({ dataResults });
+  };
+
   render() {
     return (
       <BrowserRouter>
         <div className="App">
-        <NavBar />
+          <NavBar getDataResults={this.getDataResults} />
           <Switch>
-            <Route exact path="/" component={Cards} />
+            <Route
+              exact
+              path="/"
+              component={() => (
+                <Cards
+                  getIndexResults={this.getIndexResults}
+                  dataResults={this.state.dataResults}
+                />
+              )}
+            />
             <Route exact path="/main" component={Main} />
           </Switch>
         </div>
