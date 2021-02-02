@@ -14,7 +14,7 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    const id = "MLM828343192";
+    const id = localStorage.getItem("id");
     axios.get(`https://api.mercadolibre.com/items/${id}`).then(
       (res) => {
         const data = res.data;
