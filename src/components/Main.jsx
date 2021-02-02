@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles/Main.scss'
 
 export default class Main extends Component {
 
@@ -11,7 +12,6 @@ export default class Main extends Component {
                 src=''
                 alt='imagen'
               />
-            )
         </div>
         <div className="Main__Image">
           <img className="Main__Image--img" src='' />
@@ -27,7 +27,6 @@ export default class Main extends Component {
                 <li className="Main__Info--list--li">
                   Atributo : Valor
                 </li>
-              )
           </ul>
         </div>
       </section>
