@@ -1,0 +1,59 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  background: #ededed;
+}
+.Cards {
+  display: flex;
+  width: 74%;
+  max-height: 173px;
+  margin: 15px 200px;
+  padding: 10px 40px 10px 0;
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.452);
+  background: #ffffff;
+  border-radius: 5px;
+  &__img {
+    margin: auto 5px;
+    max-width: 100%;
+    height: 100%;
+    padding: 0px 24px;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2%;
+    width: 100%;
+    height: 160px;
+    p{
+      margin:0px;
+    }
+    &--titulo {
+      color: #333;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.3;
+      padding-bottom: 10px;
+      text-align: start;
+    }
+    &--installments {
+      font-size: 13px;
+      font-weight: 400;
+      color: #000;
+      text-align: start;
+    }
+    &--precio {
+      color: #333;
+      display: flex;
+      font-size: 25px;
+      font-weight: 400;
+      margin-right: 8px;
+      line-height: 1.25;
+    }
+  }
+}
+
+a,
+ul {
+  text-decoration: none;
+  list-style: none;
+}
