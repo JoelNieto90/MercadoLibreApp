@@ -11,7 +11,7 @@ const Cards = ({ dataResults }) => {
             <img className="Cards__img" src={data.thumbnail} alt="imagen" />
             <div className="Cards__info">
               <Link
-                to={`/main/${data.id}`}
+                to="/main"
                 value={data.id}
                 className="Cards__info--titulo"
               >
