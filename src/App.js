@@ -1,11 +1,18 @@
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Mercado Libre App</h1>
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={NavBar} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
-
-export default App;
