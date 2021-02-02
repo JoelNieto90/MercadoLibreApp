@@ -2,23 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../styles/Cards.scss'
 
-const Cards = () => {
+const Cards = ({ dataResults }) => {
   return (
     <main className="main">
+      {dataResults.map((data) => {
+        return (
           <form className="Cards">
-            <img className="Cards__img" src='' alt="imagen" />
+            <img className="Cards__img" src={data.thumbnail} alt="imagen" />
             <div className="Cards__info">
-              <Link to="/main" value='value' className="Cards__info--titulo">
-                Titulo
+              <Link
+                to={`/main/${data.id}`}
+                value={data.id}
+                className="Cards__info--titulo"
+              >
+                {data.title}
               </Link>
               <p className="Cards__info--precio">
-                Precio
-              </p>
-              <p className="Cards__info--installments">
-                en 12 x $
+                ${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </p>
             </div>
           </form>
+        );
+      })}
     </main>
   );
 };
