@@ -35,20 +35,34 @@ export default class Main extends Component {
     return (
       <section className="Main">
         <div className="Main__Pictures">
-          <img className="Main__Pictures--img" src="" alt="imagen" />
+          {this.state.pictures.map((picture) => {
+            return (
+              <img
+                className="Main__Pictures--img"
+                src={picture.url}
+                alt={this.state.index.title}
+              />
+            );
+          })}
         </div>
         <div className="Main__Image">
-          <img className="Main__Image--img" src="" />
+          <img className="Main__Image--img" src={this.state.index.thumbnail} />
         </div>
         <div className="Main__Info">
           <small className="Main__Info--small">Nuevo | 6927 vendidos</small>
-          <p className="Main__Info--title">Titulo</p>
-          <p className="Main__Info--price">$Precio</p>
-          <a href="" className="Main__Info--button">
+          <p className="Main__Info--title">{this.state.index.title}</p>
+          <p className="Main__Info--price">${this.state.index.price}</p>
+          <a href={this.state.index.permalink} className="Main__Info--button">
             Comprar ahora
           </a>
           <ul className="Main__Info--list">
-            <li className="Main__Info--list--li">Atributo : Valor</li>
+            {this.state.atributes.map((atribute) => {
+              return (
+                <li className="Main__Info--list--li">
+                  {atribute.name} : {atribute.value_name}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
