@@ -12,7 +12,29 @@ export default class NavBar extends Component {
       search: "",
     };
   }
+  handleChange = (e) => {
+    this.setState({
+      search: e.target.value,
+    });
+  };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const valueState = this.state.search;
+
+    const api = `https://api.mercadolibre.com/sites/MLM/search?q=${valueState}`;
+
+    axios.get(api).then(
+      (res) => {
+        const data = res.data.results;
+        this.props.getDataResults(data);
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  };
   componentDidMount() {
     axios
       .get("https://api.mercadolibre.com/sites/MLM/search?category=MLM1648")
@@ -30,7 +52,7 @@ export default class NavBar extends Component {
   render() {
     return (
       <nav className="NavBar">
-        <form className="NavBar__search">
+        <form onSubmit={this.handleSubmit} className="NavBar__search">
           <Link to="/">
             <img src={Logo} className="NavBar__search--img" alt="Logo" />
           </Link>
@@ -38,6 +60,8 @@ export default class NavBar extends Component {
             className="NavBar__search--input"
             type="text"
             placeholder="Buscar productos, marcas y más..."
+            onChange={this.handleChange}
+            value={this.state.search}
           />
           <button
             type="submit"
